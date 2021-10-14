@@ -5,7 +5,7 @@ import java.util.List;
 
 class MergeOverlappingIntervals {
 
-    private List<Interval> intervals;
+    private final List<Interval> intervals;
 
     MergeOverlappingIntervals(List<Interval> intervals) {
         this.intervals = intervals;

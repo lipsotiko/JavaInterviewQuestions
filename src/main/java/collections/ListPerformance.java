@@ -5,9 +5,9 @@ import java.util.LinkedList;
 
 class ListPerformance {
 
-    private ArrayList<Integer> arrayList;
-    private LinkedList<Integer> linkedList;
-    private long startTime;
+    private final ArrayList<Integer> arrayList;
+    private final LinkedList<Integer> linkedList;
+    private final long startTime;
 
     ListPerformance() {
         arrayList = new ArrayList<>();
