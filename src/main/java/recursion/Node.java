@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author w w w. j a v a g i s t s . c o m
- *
  */
 public class Node<T> {
 

@@ -1,10 +1,11 @@
 package recursion;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
-import java.util.Set;
+import java.util.Collection;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FibonacciTest {
 
@@ -13,7 +14,23 @@ public class FibonacciTest {
         Fibonacci fibonacci = new Fibonacci();
         fibonacci.fibonacci(7);
 
-        Set<Integer> results = fibonacci.getResults();
+        Collection<Integer> results = fibonacci.getResults();
+        assertTrue(results.contains(0));
+        assertTrue(results.contains(1));
+        assertTrue(results.contains(2));
+        assertTrue(results.contains(3));
+        assertTrue(results.contains(5));
+        assertTrue(results.contains(8));
+        assertTrue(results.contains(13));
+    }
+
+    @Test
+    @Timeout(1)
+    public void fibonacci_sequence_with_memoization() {
+        Fibonacci fibonacci = new Fibonacci();
+        fibonacci.fibonacciMemoized(500);
+
+        Collection<Integer> results = fibonacci.getMemoizedResults();
         assertTrue(results.contains(0));
         assertTrue(results.contains(1));
         assertTrue(results.contains(2));

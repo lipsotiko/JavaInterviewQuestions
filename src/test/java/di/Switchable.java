@@ -1,6 +1,7 @@
 package di;
 
 public interface Switchable {
-  void turnOn();
-  void turnOff();
+    void turnOn();
+
+    void turnOff();
 }

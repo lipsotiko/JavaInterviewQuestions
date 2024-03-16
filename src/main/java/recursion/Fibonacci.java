@@ -1,23 +1,40 @@
 package recursion;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 class Fibonacci {
 
-    private Set<Integer> results = new HashSet<>();
+    private final Set<Integer> results = new HashSet<>();
+    private final Map<Integer, Integer> memo = new HashMap<>();
 
-    int fibonacci(int nthFibNumber) {
-        if(nthFibNumber <= 1) {
-            results.add(nthFibNumber);
-            return nthFibNumber;
+    int fibonacci(int n) {
+        if (n <= 1) {
+            results.add(n);
+            return n;
         }
-        int nextFibNumber = fibonacci(nthFibNumber - 2) + fibonacci(nthFibNumber - 1);
+        int nextFibNumber = fibonacci(n - 2) + fibonacci(n - 1);
         results.add(nextFibNumber);
         return nextFibNumber;
     }
 
-    Set<Integer> getResults() {
+    int fibonacciMemoized(int n) {
+        if (n <= 0) {
+            memo.put(0, 0);
+        } else if (n ==1) {
+            memo.put(1, 1);
+        } else if (memo.get(n) == null) {
+            int nextFibNumber = fibonacciMemoized(n - 2) + fibonacciMemoized(n - 1);
+            memo.put(n, nextFibNumber);
+        }
+
+        return memo.get(n);
+    }
+
+    Collection<Integer> getResults() {
         return results;
+    }
+
+    Collection<Integer> getMemoizedResults() {
+        return memo.values();
     }
 }

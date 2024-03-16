@@ -21,11 +21,11 @@ class MergeOverlappingIntervals {
             if (isNotLast(i)) next = intervals.get(i);
 
             if (next != null && next.isWithin(current)) {
-                if(next.getEnd() >= current.getEnd())
+                if (next.getEnd() >= current.getEnd())
                     current.setEnd(next.getEnd());
             } else {
                 results.add(current);
-                if(isNotLast(i)) current = intervals.get(i);
+                if (isNotLast(i)) current = intervals.get(i);
             }
         }
 

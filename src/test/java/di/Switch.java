@@ -1,6 +1,7 @@
 package di;
 
 public interface Switch {
-  boolean isOn();
-  void press();
+    boolean isOn();
+
+    void press();
 }

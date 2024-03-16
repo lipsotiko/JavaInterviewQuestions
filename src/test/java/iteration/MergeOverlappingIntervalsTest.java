@@ -1,27 +1,28 @@
 package iteration;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class MergeOverlappingIntervalsTest {
 
     private List<Interval> intervals;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         intervals = new ArrayList<>();
     }
 
     @Test
     public void no_overlapping_intervals() {
-        intervals.add(new Interval(1,3));
-        intervals.add(new Interval(5,6));
-        intervals.add(new Interval(7,8));
+        intervals.add(new Interval(1, 3));
+        intervals.add(new Interval(5, 6));
+        intervals.add(new Interval(7, 8));
 
         MergeOverlappingIntervals mergeOverlappingIntervals = new MergeOverlappingIntervals(intervals);
         List<Interval> result = mergeOverlappingIntervals.merge();
@@ -40,8 +41,8 @@ public class MergeOverlappingIntervalsTest {
 
     @Test
     public void merges_one_overlapping_interval() {
-        intervals.add(new Interval(1,3));
-        intervals.add(new Interval(2,5));
+        intervals.add(new Interval(1, 3));
+        intervals.add(new Interval(2, 5));
 
         MergeOverlappingIntervals mergeOverlappingIntervals = new MergeOverlappingIntervals(intervals);
         List<Interval> result = mergeOverlappingIntervals.merge();
@@ -55,10 +56,10 @@ public class MergeOverlappingIntervalsTest {
 
     @Test
     public void last_intervals_are_overlapping() {
-        intervals.add(new Interval(1,3));
-        intervals.add(new Interval(6,7));
-        intervals.add(new Interval(10,20));
-        intervals.add(new Interval(15,30));
+        intervals.add(new Interval(1, 3));
+        intervals.add(new Interval(6, 7));
+        intervals.add(new Interval(10, 20));
+        intervals.add(new Interval(15, 30));
 
         MergeOverlappingIntervals mergeOverlappingIntervals = new MergeOverlappingIntervals(intervals);
         List<Interval> result = mergeOverlappingIntervals.merge();
@@ -77,11 +78,11 @@ public class MergeOverlappingIntervalsTest {
 
     @Test
     public void first_intervals_are_overlapping() {
-        intervals.add(new Interval(1,3));
-        intervals.add(new Interval(2,6));
-        intervals.add(new Interval(5,10));
-        intervals.add(new Interval(15,30));
-        intervals.add(new Interval(40,50));
+        intervals.add(new Interval(1, 3));
+        intervals.add(new Interval(2, 6));
+        intervals.add(new Interval(5, 10));
+        intervals.add(new Interval(15, 30));
+        intervals.add(new Interval(40, 50));
 
         MergeOverlappingIntervals mergeOverlappingIntervals = new MergeOverlappingIntervals(intervals);
         List<Interval> result = mergeOverlappingIntervals.merge();
@@ -100,18 +101,18 @@ public class MergeOverlappingIntervalsTest {
 
     @Test
     public void merges_a_mixture_of_overlapping_and_non_overlapping_intervals() {
-        intervals.add(new Interval(1,3));
-        intervals.add(new Interval(2,5));
-        intervals.add(new Interval(7,9));
-        intervals.add(new Interval(11,12));
-        intervals.add(new Interval(12,14));
-        intervals.add(new Interval(13,15));
-        intervals.add(new Interval(15,20));
-        intervals.add(new Interval(28,30));
-        intervals.add(new Interval(40,50));
-        intervals.add(new Interval(45,55));
-        intervals.add(new Interval(50,60));
-        intervals.add(new Interval(100,101));
+        intervals.add(new Interval(1, 3));
+        intervals.add(new Interval(2, 5));
+        intervals.add(new Interval(7, 9));
+        intervals.add(new Interval(11, 12));
+        intervals.add(new Interval(12, 14));
+        intervals.add(new Interval(13, 15));
+        intervals.add(new Interval(15, 20));
+        intervals.add(new Interval(28, 30));
+        intervals.add(new Interval(40, 50));
+        intervals.add(new Interval(45, 55));
+        intervals.add(new Interval(50, 60));
+        intervals.add(new Interval(100, 101));
 
         MergeOverlappingIntervals mergeOverlappingIntervals = new MergeOverlappingIntervals(intervals);
         List<Interval> result = mergeOverlappingIntervals.merge();
@@ -139,7 +140,7 @@ public class MergeOverlappingIntervalsTest {
 
     @Test
     public void one_interval() {
-        intervals.add(new Interval(1,3));
+        intervals.add(new Interval(1, 3));
 
         MergeOverlappingIntervals mergeOverlappingIntervals = new MergeOverlappingIntervals(intervals);
         List<Interval> result = mergeOverlappingIntervals.merge();
@@ -152,10 +153,10 @@ public class MergeOverlappingIntervalsTest {
 
     @Test
     public void one_large_interval() {
-        intervals.add(new Interval(1,100));
-        intervals.add(new Interval(1,20));
-        intervals.add(new Interval(10,11));
-        intervals.add(new Interval(50,100));
+        intervals.add(new Interval(1, 100));
+        intervals.add(new Interval(1, 20));
+        intervals.add(new Interval(10, 11));
+        intervals.add(new Interval(50, 100));
 
         MergeOverlappingIntervals mergeOverlappingIntervals = new MergeOverlappingIntervals(intervals);
         List<Interval> result = mergeOverlappingIntervals.merge();
