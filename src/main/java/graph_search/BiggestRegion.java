@@ -10,14 +10,21 @@ public class BiggestRegion {
 
     public int find() {
         int max = 0;
+        int regionCount = 0;
         for (int row = 0; row < grid.length; row++) {
             for(int col = 0; col < grid[row].length; col++) {
                 int size = countAdjacent(grid, row, col);
                 if (size > max) {
                     max = size;
                 }
+
+                if (size > 0) {
+                    regionCount++;
+                }
             }
         }
+
+        System.out.printf("Region count: %s", regionCount);
 
         return max;
     }
